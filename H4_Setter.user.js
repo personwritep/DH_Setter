@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name        H4 Setter ⭐
 // @namespace        http://tampermonkey.net/
-// @version        0.1
+// @version        0.2
 // @description        ブログ編集画面で任意のdiv要素を「h4」に変更する
 // @author        Ameba Blog User
-// @match        https://blog.ameba.jp/ucs/entry/srventry*
-// @exclude        https://blog.ameba.jp/ucs/entry/srventrylist*
+// @match        https://blog.ameba.jp/ucs/entry/srventryinsertinput.do*
+// @match        https://blog.ameba.jp/ucs/entry/srventryupdateinput.do*
 // @icon        https://www.google.com/s2/favicons?sz=64&domain=ameba.jp
 // @grant        none
 // @updateURL        https://github.com/personwritep/H4_Setter/raw/main/H4_Setter.user.js
