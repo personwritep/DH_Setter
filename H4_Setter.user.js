@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        H4 Setter ⭐
 // @namespace        http://tampermonkey.net/
-// @version        0.2
+// @version        0.3
 // @description        ブログ編集画面で任意のdiv要素を「h4」に変更する
 // @author        Ameba Blog User
 // @match        https://blog.ameba.jp/ucs/entry/srventryinsertinput.do*
@@ -11,6 +11,9 @@
 // @updateURL        https://github.com/personwritep/H4_Setter/raw/main/H4_Setter.user.js
 // @downloadURL        https://github.com/personwritep/H4_Setter/raw/main/H4_Setter.user.js
 // ==/UserScript==
+
+
+let listen=Symbol();
 
 
 let retry=0;
@@ -39,15 +42,18 @@ function main(target){
             if(iframe_doc){
                 let hset=
                     '<style class="hset">'+
-                    'h4::before { content: "▶"; position: absolute; left: -20px; color:red; '+
-                    'font: normal 16px Meiryo; }'+
+                    'h4::before { content: "H4▶"; position: absolute; left: -40px; color:red; '+
+                    'font: bold 16px Meiryo; }'+
                     '</style>';
-
                 if(!iframe_doc.querySelector('.hset')){
                     iframe_doc.documentElement.insertAdjacentHTML('beforeend', hset); }
 
 
-                iframe_doc.addEventListener('click', function(event){
+                if(!iframe_doc[listen]){
+                    iframe_doc.addEventListener('click', set_h4);
+                    iframe_doc[listen]=true; }
+
+                function set_h4(){
                     if(event.ctrlKey){
                         let elem=iframe_doc.elementFromPoint(event.clientX, event.clientY);
                         let div_elem=elem.closest('div');
@@ -58,8 +64,9 @@ function main(target){
                                 let regexp_e=/<\/div>$/;
                                 let new_s=outer.replace(regexp_s, '<h4');
                                 let new_e=new_s.replace(regexp_e, '</h4>');
-                                div_elem.outerHTML=new_e; }
-                        }}});
+                                div_elem.outerHTML=new_e; }}}
+
+                } // set_h4()
 
             }}} // set_elem()
 
