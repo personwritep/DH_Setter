@@ -8,8 +8,8 @@
 // @match        https://blog.ameba.jp/ucs/entry/srventryupdateinput.do*
 // @icon        https://www.google.com/s2/favicons?sz=64&domain=ameba.jp
 // @grant        none
-// @updateURL        https://github.com/personwritep/H4_Setter/raw/main/H4_Setter.user.js
-// @downloadURL        https://github.com/personwritep/H4_Setter/raw/main/H4_Setter.user.js
+// @updateURL        https://github.com/personwritep/DH_Setter/raw/main/DH_Setter.user.js
+// @downloadURL        https://github.com/personwritep/DH_Setter/raw/main/DH_Setter.user.js
 // ==/UserScript==
 
 
